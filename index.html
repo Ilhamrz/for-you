@@ -34,27 +34,29 @@
       <div class="footer">Made with ❤️</div>
     </div>
   </div>
-  <audio id="bgm" src="music.mp3" autoplay loop hidden></audio>
-  <script>
-    // Start music from a specific second — change this value
-    const START_AT_SECONDS = 15; // e.g., 15 = start from 00:15
-    const bgm = document.getElementById('bgm');// Some browsers need metadata first before setting currentTime
-bgm.addEventListener('loadedmetadata', () => {
-  try {
-    bgm.currentTime = START_AT_SECONDS;
-  } catch (_) {}
-});
+  <div style="text-align:center; margin-top:20px;">
+  <button id="playBtn" style="padding:10px 18px; border-radius:999px; border:0; box-shadow:0 6px 20px rgba(0,0,0,.12); font-size:14px; background:#fce7f3;">
+    ▶️ Play with love
+  </button>
+</div><audio id="bgm" src="music.mp3" loop></audio>
 
-// If autoplay is blocked, start after first user tap
-document.addEventListener('click', () => {
-  if (bgm.paused) {
+<script>
+  // Start position (seconds) — change if needed
+  const START_AT_SECONDS = 30;
+  const bgm = document.getElementById('bgm');
+  const btn = document.getElementById('playBtn');
+
+  let ready = false;
+  bgm.addEventListener('loadedmetadata', () => {
+    ready = true;
+  });
+
+  btn.addEventListener('click', async () => {
     try {
-      bgm.currentTime = START_AT_SECONDS;
-      bgm.play();
+      if (ready) bgm.currentTime = START_AT_SECONDS;
+      await bgm.play();
+      btn.textContent = '⏸ Pause';
     } catch (_) {}
-  }
-}, { once: true });
-
-  </script>
-</body>
+  });
+</script></body>
 </html>
