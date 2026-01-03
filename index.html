@@ -12,20 +12,28 @@
     .divider { height: 1px; background: #eee; margin: 24px 0; }
     .footer { text-align: center; opacity: .7; font-size: 14px; margin-top: 16px; }
   </style>
+  <style>
+    .fade-in { opacity: 0; transform: translateY(12px); animation: fadeIn 1.2s ease forwards; }
+    .fade-in.delay-1 { animation-delay: .4s; }
+    .fade-in.delay-2 { animation-delay: .8s; }
+    .fade-in.delay-3 { animation-delay: 1.2s; }
+    @keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
+  </style>
 </head>
 <body>
   <div class="container">
     <div class="card">
-      <h1>Happy Birthday, Sweetheart 🎂💖</h1>
+      <h1 class="fade-in">Happy Birthday, Sweetheart 🎂💖</h1>
       <!-- Replace the src value with your image URL or file name -->
       <img src="couple.jpg" alt="Birthday Photo" style="width:160px; height:160px; object-fit:cover; border-radius:50%; display:block; margin:16px auto; box-shadow:0 6px 20px rgba(0,0,0,.15);" />
-      <p>Happy birthday, sweetheart. You may be getting older, but don’t worry, you’re still my cute, funny, slightly chaotic partner in crime. Thank you for being the reason I smile a little wider and laugh every single day.</p>
+      <p class="fade-in delay-1">Happy birthday, sweetheart. You may be getting older, but don’t worry, you’re still my cute, funny, slightly chaotic partner in crime. Thank you for being the reason I smile a little wider and laugh every single day.</p>
       <div class="divider"></div>
-      <p>Every moment with you feels like a beautiful story I never want to end. You are my comfort, my happiness, and my biggest source of strength. I hope this year brings you all the love and success you deserve, and I promise to always stand by your side through every chapter of life.</p>
+      <p class="fade-in delay-2">Every moment with you feels like a beautiful story I never want to end. You are my comfort, my happiness, and my biggest source of strength. I hope this year brings you all the love and success you deserve, and I promise to always stand by your side through every chapter of life.</p>
       <div class="divider"></div>
-      <p>I may not be able to give you the whole world, but I promise to give you my love, my time, and the best version of myself. Thank you for choosing to walk with me — let’s continue to create beautiful memories together.</p>
+      <p class="fade-in delay-3">I may not be able to give you the whole world, but I promise to give you my love, my time, and the best version of myself. Thank you for choosing to walk with me — let’s continue to create beautiful memories together.</p>
       <div class="footer">Made with ❤️</div>
     </div>
   </div>
+  <audio id="bgm" src="music.mp3" autoplay loop hidden></audio>
 </body>
 </html>
