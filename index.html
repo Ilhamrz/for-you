@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -25,8 +26,10 @@
     <div class="card">
       <h1 class="fade-in">Happy Birthday, Sweetheart 🎂💖</h1>
       <!-- Replace the src value with your image URL or file name -->
-      <img src="couple.jpg" alt="Birthday Photo" style="width:160px; height:160px; object-fit:cover; border-radius:50%; display:block; margin:16px auto; box-shadow:0 6px 20px rgba(0,0,0,.15);" /><!-- Play button below photo --><audio id="bgm" src="music.mp3" loop></audio>
+      <img src="couple.jpg" alt="Birthday Photo" style="width:160px; height:160px; object-fit:cover; border-radius:50%; display:block; margin:16px auto; box-shadow:0 6px 20px rgba(0,0,0,.15);" />
 
+<!-- Play button below photo -->
+<audio id="bgm" src="music.mp3" loop></audio>
 <script>
   // Start position (seconds) — change if needed
   const START_AT_SECONDS = 15;
@@ -52,5 +55,13 @@
       }
     } catch (_) {}
   });
-</script></body>
+</script>
+  <script>
+    // Remove any duplicate Play buttons — keep only the first
+    const btns = document.querySelectorAll('#playBtn');
+    if (btns.length > 1) {
+      btns.forEach((b, i) => { if (i > 0) b.remove(); });
+    }
+  </script>
+</body>
 </html>
