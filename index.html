@@ -1,62 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Happy Birthday</title>
-  <style>
-    body { font-family: Arial, Helvetica, sans-serif; background: linear-gradient(135deg,#ffe8f5,#fff7d9); margin: 0; padding: 0; }
-    .container { max-width: 800px; margin: 0 auto; padding: 32px; }
-    .card { background: #ffffff; border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,.08); padding: 32px; }
-    h1 { font-size: 32px; margin-top: 0; }
-    p { line-height: 1.7; font-size: 16px; }
-    .divider { height: 1px; background: #eee; margin: 24px 0; }
-    .footer { text-align: center; opacity: .7; font-size: 14px; margin-top: 16px; }
-  </style>
-  <style>
-    .fade-in { opacity: 0; transform: translateY(12px); animation: fadeIn 1.2s ease forwards; }
-    .fade-in.delay-1 { animation-delay: .4s; }
-    .fade-in.delay-2 { animation-delay: .8s; }
-    .fade-in.delay-3 { animation-delay: 1.2s; }
-    @keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Happy Birthday</title>
+
+<style>
+  body { font-family: Arial, Helvetica, sans-serif; background: linear-gradient(135deg,#ffe8f5,#fff7d9); margin:0; padding:0; }
+  .container { max-width:800px; margin:0 auto; padding:32px; }
+  .card { background:#fff; border-radius:24px; box-shadow:0 20px 40px rgba(0,0,0,.08); padding:32px; }
+  h1 { font-size:32px; margin-top:0; }
+  p { line-height:1.7; font-size:16px; }
+  .divider { height:1px; background:#eee; margin:24px 0; }
+  .footer { text-align:center; opacity:.7; font-size:14px; margin-top:16px; }
+
+  .fade-in { opacity:0; transform:translateY(12px); animation:fadeIn 1.2s ease forwards; }
+  .fade-in.delay-1{animation-delay:.4s;}
+  .fade-in.delay-2{animation-delay:.8s;}
+  .fade-in.delay-3{animation-delay:1.2s;}
+  @keyframes fadeIn{to{opacity:1;transform:translateY(0);}}
+</style>
 </head>
+
 <body>
-  <div class="container">
-    <div class="card">
-      <h1 class="fade-in">Happy Birthday, Sweetheart 🎂💖</h1>
-      <!-- Replace the src value with your image URL or file name -->
-      <img src="couple.jpg" alt="Birthday Photo" style="width:160px; height:160px; object-fit:cover; border-radius:50%; display:block; margin:16px auto; box-shadow:0 6px 20px rgba(0,0,0,.15);" />
+<div class="container">
+  <div class="card">
+    
+    <h1 class="fade-in">Happy Birthday, Sweetheart 🎂💖</h1>
 
-<!-- Play button below photo -->
-<audio id="bgm" src="music.mp3" loop></audio>
+    <img src="couple.jpg" alt="Birthday Photo"
+      style="width:160px;height:160px;object-fit:cover;border-radius:50%;display:block;margin:16px auto;box-shadow:0 6px 20px rgba(0,0,0,.15);" />
+
+    <!-- Play button (below photo) -->
+    <div style="text-align:center; margin-top:12px;">
+      <button id="playBtn"
+        style="padding:10px 18px;border-radius:999px;border:0;box-shadow:0 6px 20px rgba(0,0,0,.12);font-size:14px;background:#fce7f3;">
+        ▶️ Play with love
+      </button>
+    </div>
+
+    <audio id="bgm" src="music.mp3" loop></audio>
+
+    <div class="divider"></div>
+
+    <p class="fade-in delay-1">
+      Happy birthday, sweetheart. You may be getting older, but don’t worry, you’re still my cute,
+      funny, slightly chaotic partner in crime. Thank you for being the reason I smile a little wider
+      and laugh every single day.
+    </p>
+
+    <p class="fade-in delay-2">
+      Every moment with you feels like a beautiful story I never want to end. You are my comfort, my
+      happiness, and my biggest source of strength. I hope this year brings you all the love and success
+      you deserve, and I promise to always stand by your side through every chapter of life.
+    </p>
+
+    <p class="fade-in delay-3">
+      I may not be able to give you the whole world, but I promise to give you my love, my time, and the
+      best version of myself. Thank you for choosing to walk with me — let’s continue to create beautiful
+      memories together.
+    </p>
+
+    <div class="footer">Made with ❤️</div>
+
+  </div>
+</div>
+
 <script>
-  // Start position (seconds) — change if needed
   const START_AT_SECONDS = 15;
-  const bgm = document.getElementById('bgm');
-  const btn = document.getElementById('playBtn');
+  const bgm = document.getElementById("bgm");
+  const btn = document.getElementById("playBtn");
 
-  let ready = false;
-  bgm.addEventListener('loadedmetadata', () => {
-    ready = true;
-  });
-
-  btn.addEventListener('click', async () => {
+  btn.addEventListener("click", async () => {
     try {
       if (bgm.paused) {
-        // Play
         bgm.currentTime = START_AT_SECONDS;
         await bgm.play();
-        btn.textContent = '⏸ Pause';
+        btn.textContent = "⏸ Pause";
       } else {
-        // Pause without restarting
         bgm.pause();
-        btn.textContent = '▶️ Play with love';
+        btn.textContent = "▶️ Play with love";
       }
     } catch (_) {}
   });
 </script>
-  
+
 </body>
-    </html>
-      
+</html>
