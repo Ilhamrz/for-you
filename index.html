@@ -35,5 +35,26 @@
     </div>
   </div>
   <audio id="bgm" src="music.mp3" autoplay loop hidden></audio>
+  <script>
+    // Start music from a specific second — change this value
+    const START_AT_SECONDS = 15; // e.g., 30 = start from 00:30
+    const bgm = document.getElementById('bgm');// Some browsers need metadata first before setting currentTime
+bgm.addEventListener('loadedmetadata', () => {
+  try {
+    bgm.currentTime = START_AT_SECONDS;
+  } catch (_) {}
+});
+
+// If autoplay is blocked, start after first user tap
+document.addEventListener('click', () => {
+  if (bgm.paused) {
+    try {
+      bgm.currentTime = START_AT_SECONDS;
+      bgm.play();
+    } catch (_) {}
+  }
+}, { once: true });
+
+  </script>
 </body>
 </html>
