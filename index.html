@@ -57,9 +57,16 @@
 
   btn.addEventListener('click', async () => {
     try {
-      if (ready) bgm.currentTime = START_AT_SECONDS;
-      await bgm.play();
-      btn.textContent = '⏸ Pause';
+      if (bgm.paused) {
+        // Play
+        bgm.currentTime = START_AT_SECONDS;
+        await bgm.play();
+        btn.textContent = '⏸ Pause';
+      } else {
+        // Pause without restarting
+        bgm.pause();
+        btn.textContent = '▶️ Play with love';
+      }
     } catch (_) {}
   });
 </script></body>
